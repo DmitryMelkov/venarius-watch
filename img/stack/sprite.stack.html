@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-burger-close-dims { width: 68px; height: 13px; }
+	.svg-burger-open-dims { width: 68px; height: 45px; }
+	.svg-complex-action-svg-1-dims { width: 134px; height: 135px; }
+	.svg-complex-action-svg-2-dims { width: 149px; height: 166px; }
+	.svg-complex-action-svg-3-dims { width: 134px; height: 135px; }
+	.svg-complex-action-svg-4-dims { width: 172px; height: 136px; }
+	.svg-complex-action-svg-5-dims { width: 136px; height: 135px; }
+	.svg-footer-bottom-dims { width: 91px; height: 41px; }
+	.svg-footer-icon-1-dims { width: 33px; height: 20px; }
+	.svg-footer-icon-2-dims { width: 28px; height: 27px; }
+	.svg-footer-icon-3-dims { width: 31px; height: 25px; }
+	.svg-footer-icon-4-dims { width: 27px; height: 27px; }
+	.svg-geo-dims { width: 42px; height: 49px; }
+	.svg-intro-bootom-svg-1-dims { width: 67px; height: 67px; }
+	.svg-intro-bootom-svg-2-dims { width: 68px; height: 59px; }
+	.svg-intro-bootom-svg-3-dims { width: 68px; height: 58px; }
+	.svg-intro-bootom-svg-4-dims { width: 30px; height: 30px; }
+	.svg-intro-btn-next-dims { width: 68px; height: 68px; }
+	.svg-intro-btn-prev-dims { width: 68px; height: 68px; }
+	.svg-intro-link-1-dims { width: 67px; height: 67px; }
+	.svg-intro-link-2-dims { width: 68px; height: 67px; }
+	.svg-intro-link-3-dims { width: 68px; height: 81px; }
+	.svg-play-dims { width: 67px; height: 67px; }
+	.svg-search-dims { width: 48px; height: 50px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank" rel="noopener noreferrer">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank" rel="noopener noreferrer">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.
+
+-->
+
+			<ul>
+
+				<li title="burger-close">
+					<div class="icon-box">
+
+						<!-- burger-close -->
+						<img src="../icons/icons.svg#burger-close" class="svg-burger-close-dims" alt="burger-close"/>
+
+					</div>
+					<h2>burger-close</h2>
+				</li>
+				<li title="burger-open">
+					<div class="icon-box">
+
+						<!-- burger-open -->
+						<img src="../icons/icons.svg#burger-open" class="svg-burger-open-dims" alt="burger-open"/>
+
+					</div>
+					<h2>burger-open</h2>
+				</li>
+				<li title="complex-action-svg-1">
+					<div class="icon-box">
+
+						<!-- complex-action-svg-1 -->
+						<img src="../icons/icons.svg#complex-action-svg-1" class="svg-complex-action-svg-1-dims" alt="complex-action-svg-1"/>
+
+					</div>
+					<h2>complex-action-svg-1</h2>
+				</li>
+				<li title="complex-action-svg-2">
+					<div class="icon-box">
+
+						<!-- complex-action-svg-2 -->
+						<img src="../icons/icons.svg#complex-action-svg-2" class="svg-complex-action-svg-2-dims" alt="complex-action-svg-2"/>
+
+					</div>
+					<h2>complex-action-svg-2</h2>
+				</li>
+				<li title="complex-action-svg-3">
+					<div class="icon-box">
+
+						<!-- complex-action-svg-3 -->
+						<img src="../icons/icons.svg#complex-action-svg-3" class="svg-complex-action-svg-3-dims" alt="complex-action-svg-3"/>
+
+					</div>
+					<h2>complex-action-svg-3</h2>
+				</li>
+				<li title="complex-action-svg-4">
+					<div class="icon-box">
+
+						<!-- complex-action-svg-4 -->
+						<img src="../icons/icons.svg#complex-action-svg-4" class="svg-complex-action-svg-4-dims" alt="complex-action-svg-4"/>
+
+					</div>
+					<h2>complex-action-svg-4</h2>
+				</li>
+				<li title="complex-action-svg-5">
+					<div class="icon-box">
+
+						<!-- complex-action-svg-5 -->
+						<img src="../icons/icons.svg#complex-action-svg-5" class="svg-complex-action-svg-5-dims" alt="complex-action-svg-5"/>
+
+					</div>
+					<h2>complex-action-svg-5</h2>
+				</li>
+				<li title="footer-bottom">
+					<div class="icon-box">
+
+						<!-- footer-bottom -->
+						<img src="../icons/icons.svg#footer-bottom" class="svg-footer-bottom-dims" alt="footer-bottom"/>
+
+					</div>
+					<h2>footer-bottom</h2>
+				</li>
+				<li title="footer-icon-1">
+					<div class="icon-box">
+
+						<!-- footer-icon-1 -->
+						<img src="../icons/icons.svg#footer-icon-1" class="svg-footer-icon-1-dims" alt="footer-icon-1"/>
+
+					</div>
+					<h2>footer-icon-1</h2>
+				</li>
+				<li title="footer-icon-2">
+					<div class="icon-box">
+
+						<!-- footer-icon-2 -->
+						<img src="../icons/icons.svg#footer-icon-2" class="svg-footer-icon-2-dims" alt="footer-icon-2"/>
+
+					</div>
+					<h2>footer-icon-2</h2>
+				</li>
+				<li title="footer-icon-3">
+					<div class="icon-box">
+
+						<!-- footer-icon-3 -->
+						<img src="../icons/icons.svg#footer-icon-3" class="svg-footer-icon-3-dims" alt="footer-icon-3"/>
+
+					</div>
+					<h2>footer-icon-3</h2>
+				</li>
+				<li title="footer-icon-4">
+					<div class="icon-box">
+
+						<!-- footer-icon-4 -->
+						<img src="../icons/icons.svg#footer-icon-4" class="svg-footer-icon-4-dims" alt="footer-icon-4"/>
+
+					</div>
+					<h2>footer-icon-4</h2>
+				</li>
+				<li title="geo">
+					<div class="icon-box">
+
+						<!-- geo -->
+						<img src="../icons/icons.svg#geo" class="svg-geo-dims" alt="geo"/>
+
+					</div>
+					<h2>geo</h2>
+				</li>
+				<li title="intro-bootom-svg-1">
+					<div class="icon-box">
+
+						<!-- intro-bootom-svg-1 -->
+						<img src="../icons/icons.svg#intro-bootom-svg-1" class="svg-intro-bootom-svg-1-dims" alt="intro-bootom-svg-1"/>
+
+					</div>
+					<h2>intro-bootom-svg-1</h2>
+				</li>
+				<li title="intro-bootom-svg-2">
+					<div class="icon-box">
+
+						<!-- intro-bootom-svg-2 -->
+						<img src="../icons/icons.svg#intro-bootom-svg-2" class="svg-intro-bootom-svg-2-dims" alt="intro-bootom-svg-2"/>
+
+					</div>
+					<h2>intro-bootom-svg-2</h2>
+				</li>
+				<li title="intro-bootom-svg-3">
+					<div class="icon-box">
+
+						<!-- intro-bootom-svg-3 -->
+						<img src="../icons/icons.svg#intro-bootom-svg-3" class="svg-intro-bootom-svg-3-dims" alt="intro-bootom-svg-3"/>
+
+					</div>
+					<h2>intro-bootom-svg-3</h2>
+				</li>
+				<li title="intro-bootom-svg-4">
+					<div class="icon-box">
+
+						<!-- intro-bootom-svg-4 -->
+						<img src="../icons/icons.svg#intro-bootom-svg-4" class="svg-intro-bootom-svg-4-dims" alt="intro-bootom-svg-4"/>
+
+					</div>
+					<h2>intro-bootom-svg-4</h2>
+				</li>
+				<li title="intro-btn-next">
+					<div class="icon-box">
+
+						<!-- intro-btn-next -->
+						<img src="../icons/icons.svg#intro-btn-next" class="svg-intro-btn-next-dims" alt="intro-btn-next"/>
+
+					</div>
+					<h2>intro-btn-next</h2>
+				</li>
+				<li title="intro-btn-prev">
+					<div class="icon-box">
+
+						<!-- intro-btn-prev -->
+						<img src="../icons/icons.svg#intro-btn-prev" class="svg-intro-btn-prev-dims" alt="intro-btn-prev"/>
+
+					</div>
+					<h2>intro-btn-prev</h2>
+				</li>
+				<li title="intro-link-1">
+					<div class="icon-box">
+
+						<!-- intro-link-1 -->
+						<img src="../icons/icons.svg#intro-link-1" class="svg-intro-link-1-dims" alt="intro-link-1"/>
+
+					</div>
+					<h2>intro-link-1</h2>
+				</li>
+				<li title="intro-link-2">
+					<div class="icon-box">
+
+						<!-- intro-link-2 -->
+						<img src="../icons/icons.svg#intro-link-2" class="svg-intro-link-2-dims" alt="intro-link-2"/>
+
+					</div>
+					<h2>intro-link-2</h2>
+				</li>
+				<li title="intro-link-3">
+					<div class="icon-box">
+
+						<!-- intro-link-3 -->
+						<img src="../icons/icons.svg#intro-link-3" class="svg-intro-link-3-dims" alt="intro-link-3"/>
+
+					</div>
+					<h2>intro-link-3</h2>
+				</li>
+				<li title="play">
+					<div class="icon-box">
+
+						<!-- play -->
+						<img src="../icons/icons.svg#play" class="svg-play-dims" alt="play"/>
+
+					</div>
+					<h2>play</h2>
+				</li>
+				<li title="search">
+					<div class="icon-box">
+
+						<!-- search -->
+						<img src="../icons/icons.svg#search" class="svg-search-dims" alt="search"/>
+
+					</div>
+					<h2>search</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Sun, 02 Oct 2022 14:54:17 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
